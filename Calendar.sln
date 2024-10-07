@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calendar", "Calendar\Calendar.vcxproj", "{84DD1D8C-EF28-4899-A05C-3A4443120B77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Debug|x64.ActiveCfg = Debug|x64
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Debug|x64.Build.0 = Debug|x64
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Debug|x86.ActiveCfg = Debug|Win32
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Debug|x86.Build.0 = Debug|Win32
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Release|x64.ActiveCfg = Release|x64
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Release|x64.Build.0 = Release|x64
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Release|x86.ActiveCfg = Release|Win32
+		{84DD1D8C-EF28-4899-A05C-3A4443120B77}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F352BCE-D6C2-4D80-998C-D318B8328A4C}
+	EndGlobalSection
+EndGlobal
