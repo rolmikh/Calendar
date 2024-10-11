@@ -1,12 +1,11 @@
 ﻿#include <iostream>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 int firstDay = 3; // первый день 1919 года
 
 bool leapYear(int year) {
-    //cin >> year;
-
     if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
         return true;
     }
@@ -93,7 +92,18 @@ void printCalendar(int month, int year) {
 int main() {
     setlocale(LC_ALL, "Russian");
     int month, year;
-    cin >> month >> year;
+    while (true) {
+        cout << "Введите месяц и год: ";
+        cin >> month >> year;
+
+        if (cin.fail() || month < 1 || month > 12 || year < 1919 || year > 2069) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Некорректный ввод. Пожалуйста, введите месяц (1-12) и год (1919-2069)." << endl;
+        }
+        else { break; }
+    }
+    
     printCalendar(month, year);
 
     return 0;
