@@ -3,8 +3,6 @@
 #include <limits>
 using namespace std;
 
-int firstDay = 3; // первый день 1919 года
-
 bool leapYear(int year) {
     if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
         return true;
@@ -15,39 +13,18 @@ bool leapYear(int year) {
 }
 
 int firstDayOfMonth(int month, int year) {
-    int firstYear = 1919;
-    int totalDays = 0;
 
-    for (int y = firstYear; y < year; y++) {
-        if (leapYear(y)) {
-            totalDays += 366;
-        }
-        else {
-            totalDays += 365;
-        }
+    if (month == 1 || month == 2) {
+        year = year - 1;
+        month = month + 10;
+    }
+    else {
+        month = month - 2;
     }
 
-    for (int m = 1; m < month; m++) {
-        if (m == 2) {
-            if (leapYear(year)) {
-                totalDays += 29;
-            }
-            else {
-                totalDays += 28;
-            }
-        }
-        else if (m == 4 || m == 6 || m == 9 || m == 11) {
-            totalDays += 30;
-        }
-        else {
-            totalDays += 31;
-        }
-    }
+    int firstDay = (1 + ((31 * month) / 12) + year + (year / 4) - (year / 100) + (year / 400));
+    int result = firstDay % 7;
 
-    int result = (totalDays + firstDay) % 7;
-    if (result == 0) {
-        result = 7;
-    }
     return result;
 }
 
@@ -89,21 +66,30 @@ void printCalendar(int month, int year) {
     cout << endl;
 }
 
+bool validationInput(int month, int year) {
+
+    if (cin.fail() || month < 1 || month > 12 || year < 1919 || year > 2069) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return true;
+    }
+    else { return false; }
+}
+
 int main() {
     setlocale(LC_ALL, "Russian");
     int month, year;
+    
     while (true) {
         cout << "Введите месяц и год: ";
         cin >> month >> year;
-
-        if (cin.fail() || month < 1 || month > 12 || year < 1919 || year > 2069) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Некорректный ввод. Пожалуйста, введите месяц (1-12) и год (1919-2069)." << endl;
+        if (validationInput(month,year)) {
+            cout << "Некорректный ввод. Пожалуйста, введите месяц (от 1 до 12) и год (от 1919 до 2069)." << endl;
         }
-        else { break; }
+        else {
+            break;
+        }
     }
-    
     printCalendar(month, year);
 
     return 0;
