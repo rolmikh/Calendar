@@ -23,6 +23,13 @@ namespace UnitTestCalendar
 			Assert::IsFalse(leapYear(2021), L"2021 - не високосный год");
 		}
 
+		TEST_METHOD(TestfirstDayOfMonth_10_2024_AreEqual) {
+			Assert::AreEqual(1, firstDayOfMonth(10, 2024), L"ќжидалось, что 1 окт€бр€ 2024 будет вторником");
+		}
+
+		TEST_METHOD(TestfirstDayOfMonth_2_2024_AreEqual) {
+			Assert::AreEqual(3, firstDayOfMonth(2, 2024), L"ќжидалось, что 1 феврал€ 2024 будет четверг");
+		}
 		
 	};
 }
